@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Prioritization — Case Study</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="nav_icon.jpg" alt="Ayush Saxena" class="nav-profile-pic">
+            </a>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cases.html">Case Studies</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 1rem;">
+        
+        <section class="text-block">
+
+            <div style="text-align: left; margin-bottom: 1.5rem;">
+                <a href="cases.html" class="text-link" style="font-size: 0.95rem; opacity: 0.7;">
+                    <i class="fas fa-arrow-left"></i> Back to Case Studies
+                </a>
+            </div>
+        
+        <section class="text-block">
+            
+            <div style="background-color: #333; border-radius: 8px; overflow: hidden; margin-bottom: 2rem;">
+                <img src="project2.png" alt="Prioritization Matrix" class="cs-header-image" style="margin-bottom:0; border:none;">
+            </div>
+
+            <h1 style="margin-bottom: 0.5rem;">⚖️ Feature Prioritization Framework with A/B Testing Simulation</h1>
+            
+            <div class="cs-properties">
+                <div class="cs-prop-label"><i class="fas fa-align-left"></i> Problem</div>
+                <div class="cs-prop-value">How can product teams prioritize features objectively when resources are limited?</div>
+
+                <div class="cs-prop-label"><i class="fas fa-tag"></i> PM Skill</div>
+                <div class="cs-prop-value"><span class="tag yellow-tag" style="margin:0; font-size: 0.9rem;">Prioritization</span></div>
+
+                <div class="cs-prop-label"><i class="fas fa-check-circle"></i> Status</div>
+                <div class="cs-prop-value"><span class="status-tag status-green">Completed</span></div>
+            </div>
+
+            <div class="notion-quote" style="margin-top: 0.8rem; font-style: italic; opacity: 0.8;">
+                <strong>How should teams prioritize features when resources are limited?</strong><br>
+                <span style="opacity: 0.8;">A structured framework using impact, confidence, effort, and experimentation.</span>
+            </div>
+
+            <div class="cs-callout" id="overview">
+                <div style="font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;">Case Study Overview</div>
+                
+                <div class="cs-callout-item">
+                    <span>⚠️</span> <span><strong>Problem:</strong> Feature prioritization decisions are often opinion-driven, leading to inefficient roadmaps and poor ROI.</span>
+                </div>
+                <div class="cs-callout-item">
+                    <span>👤</span> <span><strong>User:</strong> Product managers and stakeholders planning roadmaps under limited time and engineering capacity.</span>
+                </div>
+                <div class="cs-callout-item">
+                    <span>🎯</span> <span><strong>Goal:</strong> Build a structured, data-driven framework to evaluate feature ideas using impact, confidence, effort, and experimentation.</span>
+                </div>
+                <div class="cs-callout-item">
+                    <span>🧠</span> <span><strong>Core PM Skill:</strong> Prioritization & Decision-making</span>
+                </div>
+            </div>
+
+            <h3 id="problem">Problem Statement</h3>
+            <p>Product teams regularly receive more feature ideas than they can realistically build. Requests come from multiple sources — stakeholders, users, leadership, sales, and internal teams — each advocating for different priorities.</p>
+            <p style="margin-top: 0.5rem;">In the absence of a structured decision-making framework, prioritization often becomes influenced by opinions, urgency, or seniority rather than measurable impact. This leads to unclear roadmaps, misaligned expectations, and features being shipped without strong validation of user value or business return.</p>
+            <p style="margin-top: 0.5rem;">As teams operate under limited engineering capacity and tight timelines, there is a critical need for a transparent, data-informed prioritization approach that helps product managers make confident trade-offs, evaluate ideas objectively, and justify roadmap decisions with evidence rather than intuition.</p>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="role">My Role</h3>
+            <p><strong>Independent Product Manager (Case Study):</strong></p>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li>Owned the end-to-end prioritization problem from problem definition to decision framework design</li>
+                <li>Defined assumptions and evaluation criteria for feature prioritization</li>
+                <li>Designed a structured prioritization model combining RICE scoring and experimentation logic</li>
+                <li>Simulated decision-making scenarios to compare feature impact under limited engineering capacity</li>
+            </ul>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="approach">Approach</h3>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li><strong>Identified prioritization challenges</strong> faced by product teams under limited time and resources</span></li>
+                <li><strong>Defined evaluation criteria</strong> (impact, reach, confidence, effort) to compare feature ideas objectively</li>
+                <li><strong>Applied RICE scoring</strong> to rank competing feature initiatives</li>
+                <li><strong>Designed A/B testing simulations</strong> to validate assumptions before full-scale development</li>
+                <li><strong>Compared outcomes</strong> to understand trade-offs between short-term wins and long-term value</li>
+                <li><strong>Translated insights into roadmap recommendations</strong> supported by data and reasoning</li>
+            </ul>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="insights">Key Insights</h3>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li><strong>Not all high-impact features deliver value without confidence.</strong><br>Features with strong projected impact but low confidence created a high risk for roadmap commitments. Prioritization without validating assumptions often leads to wasted engineering effort.</li>
+                <li><strong>Effort alone is a poor reason to deprioritize features.</strong><br>Some medium-effort features delivered disproportionately higher user value when aligned with core product goals, showing that effort should be evaluated relative to impact - not in isolation.</li>
+                <li><strong>Opinion-driven prioritization leads to inconsistent roadmaps.</strong><br>When stakeholder influence outweighed data, feature rankings varied significantly across scenarios, highlighting the need for a consistent scoring framework.</li>
+                <li><strong>Experimentation reduces prioritization risk before full development.</strong><br>Simulated A/B testing helped validate assumptions early, allowing decisions to be based on evidence rather than predictions alone.</li>
+                <li><strong>Prioritization is a decision-making problem, not a scoring problem.</strong><br>Scores provided direction, but final decisions required contextual judgment - including user goals, business strategy, and timing.</li>
+            </ul>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="decisions">Product Decisions & Trade-offs</h3>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li><strong>Prioritized features with moderate impact but high confidence over high-impact, low-confidence ideas.</strong><br>While some features appeared attractive due to projected upside, limited validation increased delivery risk. Choosing higher-confidence initiatives improved predictability and reduced wasted engineering effort.</li>
+                <li><strong>Chose structured RICE scoring over ad hoc stakeholder voting.</strong><br>Although stakeholder voting was faster, it introduced bias and inconsistency. RICE provided a transparent and repeatable decision-making process.</li>
+                <li><strong>Delayed implementation of complex features in favor of testable experiments.</strong><br>Instead of committing full development resources, experimentation allowed assumptions to be validated early, trading speed of delivery for reduced long-term risk.</li>
+                <li><strong>Balanced short-term wins with long-term strategic value.</strong><br>Some quick-win features were deprioritized when they did not align with core product goals, favoring sustainable impact over immediate gains.</li>
+                <li><strong>Used framework outputs as guidance, not the final truth.</strong><br>Scores informed decisions but were adjusted based on context, such as user journey relevance, timing, and business priorities.</li>
+            </ul>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="outcome">Outcome / Impact</h3>
+            <p>Based on the prioritization framework and experimentation simulations, the proposed approach was expected to:</p>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li>Improve clarity and alignment in roadmap discussions by providing a transparent decision-making structure.</li>
+                <li>Reduce subjective bias by grounding prioritization decisions in measurable criteria.</li>
+                <li>Lower delivery risk by validating assumptions through experimentation before full development.</li>
+                <li>Enable better utilization of limited engineering resources by focusing on higher-confidence initiatives.</li>
+                <li>Support more informed trade-offs between short-term gains and long-term product strategy.</li>
+            </ul>
+            <p style="margin-top: 1rem; font-style: italic; opacity: 0.7;"><strong>Note:</strong> These outcomes represent projected impact based on simulated analysis and assumptions, not actual production metrics.</p>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="learned">What I Learned</h3>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li><strong>Prioritization is about making decisions, not ranking features.</strong><br>Frameworks help structure thinking, but real product judgment is required to interpret results and make trade-offs.</li>
+                <li><strong>High impact without confidence introduces significant risk.</strong><br>This project reinforced the importance of validating assumptions before committing engineering resources.</li>
+                <li><strong>Data supports decisions, but context completes them.</strong><br>Numbers alone are insufficient without understanding product goals, user journey relevance, and timing.</li>
+                <li><strong>Saying “no” is as important as deciding what to build.</strong><br>Effective prioritization requires comfort in deprioritizing attractive ideas when they do not align with strategy.</li>
+                <li><strong>Experimentation reduces uncertainty before scale.</strong><br>Small tests and simulations can prevent costly long-term mistakes.</li>
+            </ul>
+
+
+        </section>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            
+            <a href="cases.html" class="btn-notion-outline">
+                <i class="fas fa-arrow-left"></i> Back to Case Studies
+            </a>
+
+            <a href="https://github.com/iamAyushSaxena/Feature-Prioritization-Framework" target="_blank" class="btn-notion">
+                <i class="fab fa-github"></i> View Code on GitHub
+            </a>
+
+        </div>
+
+    </main>
+
+    <div class="toc-container">
+        <div class="toc-trigger">
+            <i class="fas fa-list-ul"></i>
+        </div>
+        <div class="toc-menu">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #999; margin-bottom: 5px; padding-left: 10px;">ON THIS PAGE</div>
+            <a href="#overview">Case Study Overview</a>
+            <a href="#problem">Problem Statement</a>
+            <a href="#role">My Role</a>
+            <a href="#approach">Approach</a>
+            <a href="#insights">Key Insights</a>
+            <a href="#decisions">Product Decisions</a>
+            <a href="#outcome">Outcome / Impact</a>
+            <a href="#learned">What I Learned</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 <strong>Ayush Saxena</strong>. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

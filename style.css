@@ -1,0 +1,917 @@
+/* --- THEME VARIABLES --- */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #37352f;
+    --card-bg: #ffffff;
+    
+    /* LIGHT MODE BLUE (The Standard) */
+    --primary-color: #2d9cdb;
+    
+    --secondary-color: #ebebeb;
+    --border-color: #e0e0e0;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    
+    /* Notion Colors */
+    --alert-bg: #ffebeb;
+    --alert-text: #d44c47;
+    --step-pink: #fdeaea;
+    --step-yellow: #fbf3db;
+    --step-orange: #faebd7;
+    --step-green: #eefdf2;
+    
+    --shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+    /* LAYOUT WIDTH SETTING */
+    --content-width: 705px;
+    --mobile-padding: 10px;
+}
+
+html {
+    /* 1. Navbar Height (60px) + Breathing Room (30px) = 90px Offset */
+    scroll-padding-top: 90px;
+    
+    /* 2. Ensures the jump is a smooth glide, not an instant snap */
+    scroll-behavior: smooth;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --bg-color: #191919;
+    --text-color: #d4d4d4;
+    --card-bg: #202020;
+    
+    /* UPDATED: FORCED SAME BLUE AS LIGHT MODE */
+    --primary-color: #2d9cdb;
+    
+    --secondary-color: #3f3f3f;
+    --border-color: #333;
+    --nav-bg: rgba(25, 25, 25, 0.95);
+    
+    --alert-bg: #3c1e1e;
+    --alert-text: #ff8f8b;
+    --step-pink: #3e2c2c;
+    --step-yellow: #3e3828;
+    --step-orange: #3e3228;
+    --step-green: #243628;
+    
+    --shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* --- RESET & BASICS --- */
+* { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    line-height: 1.6; 
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- SMART ALIGNMENT CONTAINER --- */
+nav, header, section, footer {
+    width: 100%;
+    padding-left: max(var(--mobile-padding), calc((100% - var(--content-width)) / 2));
+    padding-right: max(var(--mobile-padding), calc((100% - var(--content-width)) / 2));
+}
+
+/* --- NAVIGATION --- */
+nav {
+    display: flex; 
+    align-items: center;
+    height: 60px;
+    position: sticky; top: 0; z-index: 1000;
+    background-color: var(--nav-bg); 
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Active Link State */
+.nav-links a.active {
+    color: #d44c47;       /* Notion Red Text */
+    background-color: #ffebeb; /* Soft Pink Background */
+    font-weight: 700;     /* Extra Bold */
+}
+
+[data-theme="dark"] .nav-links a.active {
+    color: #ff8f8b;       
+    background-color: rgba(212, 76, 71, 0.2); 
+}
+
+/* Profile Pic / Logo */
+.logo { 
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    color: var(--text-color); 
+}
+
+.nav-profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Links */
+.nav-links { 
+    display: flex; 
+    gap: 0.5rem; 
+    font-size: 0.9rem; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.nav-links a { 
+    opacity: 0.9; 
+    font-weight: 600; 
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px; 
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover { 
+    opacity: 1; 
+    color: var(--text-color); 
+    background-color: rgba(0,0,0,0.05); 
+    text-decoration: none;
+}
+
+[data-theme="dark"] .nav-links a:hover {
+    background-color: rgba(255,255,255,0.1); 
+}
+
+/* Controls */
+.nav-controls { display: flex; gap: 1rem; align-items: center; }
+
+#theme-toggle { 
+    background-color: transparent;
+    border: 1px solid var(--border-color); 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    cursor: pointer; 
+    color: var(--text-color); 
+    opacity: 0.8; 
+    transition: all 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(0,0,0,0.05); 
+    opacity: 1;
+    transform: rotate(15deg); 
+}
+
+[data-theme="dark"] #theme-toggle:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.hamburger { display: none; font-size: 1.3rem; cursor: pointer; color: var(--text-color); }
+
+/* --- SECTIONS & HEADERS --- */
+header { padding-top: 5rem; padding-bottom: 1.5rem; text-align: left; }
+h1 { font-size: 2.4rem; margin-bottom: 1rem; font-weight: 700; color: var(--text-color); letter-spacing: -0.02em; line-height: 1.2; }
+h2 { font-size: 1.6rem; margin-bottom: 1.5rem; font-weight: 600; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 3rem; }
+h3 { font-size: 1.35rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+.subtitle { font-size: 1.25rem; color: var(--text-color); font-weight: 500; margin-bottom: 1.5rem; line-height: 1.5; }
+.bio { font-size: 1.05rem; color: var(--text-color); opacity: 0.9; margin-bottom: 2rem; }
+.section-intro { font-style: italic; color: var(--text-color); opacity: 0.7; margin-bottom: 2rem; font-size: 0.95rem; }
+
+/* --- DIVIDER & SPACING FIXES --- */
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border-color); 
+    margin: 0 auto; 
+    width: 100%;
+    max-width: var(--content-width); 
+    margin-bottom: 1rem; 
+}
+
+#methodology + .section-divider,
+#projects + .section-divider,
+#background + .section-divider {
+    margin-top: 3rem; 
+}
+
+#methodology, #projects, #background, #philosophy, #contact { padding-top: 0; }
+#contact { margin-top: 4rem; }
+
+#methodology h2, #projects h2, #background h2, #philosophy h2 {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    border-bottom: none; 
+    padding-bottom: 0;
+    margin-bottom: 0.5rem; 
+}
+
+#methodology .section-intro, 
+#projects .section-intro,
+#background .section-intro,
+#philosophy .section-intro { margin-top: 0; }
+
+#background h2 { margin-bottom: 1.5rem; }
+
+/* Alert Box */
+.alert-box {
+    background-color: var(--alert-bg); 
+    color: var(--alert-text);
+    padding: 1rem 1.2rem; 
+    border-radius: 6px; 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 0.8rem;
+    font-size: 0.95rem; 
+    margin-bottom: 1rem; 
+    line-height: 1.5;
+}
+.alert-box i { margin-top: 4px; flex-shrink: 0; }
+
+/* --- HOW I THINK --- */
+.step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
+.step-card { padding: 1.2rem; border-radius: 6px; }
+.step-card h3 { font-size: 0.95rem; margin-bottom: 0.4rem; font-weight: 700; }
+.step-card p { font-size: 0.9rem; opacity: 0.9; line-height: 1.5; }
+.pink { background-color: var(--step-pink); }
+.yellow { background-color: var(--step-yellow); }
+.orange { background-color: var(--step-orange); }
+.green { background-color: var(--step-green); }
+
+/* --- PROJECTS GRID --- */
+.project-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1.5rem; 
+}
+
+.project-card { 
+    background-color: var(--card-bg); 
+    border: 1px solid var(--border-color); 
+    border-radius: 6px; 
+    overflow: hidden; 
+    transition: transform 0.2s, box-shadow 0.2s; 
+    display: flex; 
+    flex-direction: column;
+    width: calc((100% - 3rem) / 3); 
+    min-width: 210px; 
+}
+
+.project-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+.card-image { 
+    height: 140px; 
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+.project-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.img-placeholder { color: #999; font-size: 0.8rem; font-weight: 500; }
+
+.card-content { padding: 1rem; flex-grow: 1; display: flex; flex-direction: column; }
+.card-content h3 { font-size: 1rem; line-height: 1.35; margin-bottom: 0.5rem; font-weight: 600; }
+
+/* Text Link (Used in Cards & Ghost Buttons) */
+.text-link { 
+    color: var(--primary-color); 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    margin-top: 1rem; 
+    display: inline-block; 
+    transition: all 0.2s ease;
+}
+
+.text-link:hover {
+    transform: translateX(3px); 
+}
+
+/* Tags */
+.tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-top: 0.8rem; }
+.pink-tag { background: var(--step-pink); color: #d44c47; }
+.yellow-tag { background: var(--step-yellow); color: #d9730d; }
+.purple-tag { background: #e6e6fa; color: #6940a5; }
+.blue-tag { background: #e3f2fd; color: #0b6bcb; }
+.green-tag { background: var(--step-green); color: #0f7b6c; }
+
+/* --- TEXT CONTENT --- */
+.text-block { margin-bottom: 3rem; }
+.card-bg { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 6px; }
+.bullet-list { margin-left: 1.5rem; margin-top: 0.8rem; list-style-type: disc; }
+.bullet-list li { margin-bottom: 0.4rem; font-size: 1rem; opacity: 0.95; }
+.highlight { background-color: rgba(255, 0, 0, 0.08); border-bottom: 2px solid #ffcccc; padding: 0 2px; }
+
+/* --- CTA SECTION --- */
+.cta-box { 
+    background-color: #efefef; 
+    padding: 2rem; 
+    border-radius: 8px; 
+    text-align: center; 
+    color: #37352f; 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); 
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.cta-buttons { 
+    margin-top: 1.5rem; 
+    display: flex; 
+    gap: 0.8rem; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+/* --- BUTTON STYLES (UPDATED) --- */
+
+/* 1. PRIMARY BUTTON (Solid Blue Filled) */
+/* Used for: View Case Studies, View Resume, Contact, Download */
+.btn-notion {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.2rem; 
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* THE SOLID BLUE STYLE */
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: #ffffff; /* White text */
+}
+
+/* Ensure Icon inside is also White */
+.btn-notion i {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Hover Effect: Glow + Lift */
+.btn-notion:hover {
+    background-color: #1c85c4; /* Slightly darker blue on hover */
+    border-color: #1c85c4;
+    transform: translateY(-2px);
+}
+
+/* 2. GHOST BUTTON (Outline Style) */
+/* Used for: Back to Case Studies, Secondary Actions */
+.btn-notion-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    
+    /* GHOST STYLE */
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color); /* Matches theme text */
+}
+
+/* Icon inside Ghost Button matches text */
+.btn-notion-outline i {
+    color: var(--text-color);
+    transition: color 0.2s;
+}
+
+.btn-notion-outline:hover {
+    background-color: rgba(45, 156, 219, 0.1); /* Subtle blue tint */
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.btn-notion-outline:hover i {
+    color: var(--primary-color);
+}
+
+/* --- FOOTER --- */
+footer { 
+    text-align: center; 
+    padding-top: 2rem; 
+    padding-bottom: 4rem; 
+    opacity: 0.6; 
+    font-size: 0.9rem; 
+    border-top: 1px solid var(--border-color); 
+    margin-top: 4rem; 
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 800px) {
+    .project-card { width: calc((100% - 1.5rem) / 2); }
+}
+
+@media (max-width: 600px) {
+    .project-grid { grid-template-columns: 1fr; }
+    .project-card { width: 100%; }
+    .hamburger { display: block; }
+    .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        background-color: var(--nav-bg); flex-direction: column;
+        text-align: center; padding: 1rem 0; border-bottom: 1px solid var(--border-color);
+        margin-right: 0;
+    }
+    .nav-links.active { display: flex; }
+    
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+}
+
+@media (max-width: 550px) {
+    .project-card { width: 100%; }
+}
+
+/* --- CONTACT PAGE STYLES --- */
+.notion-quote {
+    border-left: 3px solid var(--text-color); 
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.95;
+}
+
+.contact-group-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.contact-buttons-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+.email-box {
+    background-color: #f7f7f5;
+    border: 1px solid var(--border-color);
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    width: 100%;
+    margin-top: 0;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.email-box i { color: #787774; font-size: 1.1rem; }
+
+[data-theme="dark"] .email-box {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+/* --- ABOUT PAGE STYLES --- */
+.about-intro {
+    display: flex;
+    align-items: center; 
+    gap: 3rem; 
+    margin-bottom: 2rem;
+}
+.intro-text { flex: 1; }
+.intro-image-container { flex-shrink: 0; width: 200px; }
+.about-profile-pic {
+    width: 100%;
+    border-radius: 8px; 
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+
+.notion-toggle { margin-bottom: 0.5rem; border-radius: 4px; }
+.notion-toggle summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.35rem;
+    list-style: none; 
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    transition: background-color 0.2s;
+}
+.notion-toggle summary:hover {
+    background-color: rgba(0,0,0,0.03); 
+    border-radius: 4px;
+    padding-left: 0.5rem; 
+    margin-left: -0.5rem; 
+}
+.notion-toggle summary::before {
+    content: "▶";
+    font-size: 0.7rem;
+    margin-right: 0.8rem;
+    color: #999;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+.notion-toggle[open] summary::before { transform: rotate(90deg); }
+.toggle-content {
+    padding-left: 1.5rem; 
+    padding-bottom: 1rem;
+    padding-top: 0.2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .about-intro {
+        flex-direction: column-reverse; 
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    .intro-image-container { width: 120px; }
+}
+
+/* --- RESUME PAGE STYLES --- */
+.resume-viewer {
+    width: 100%;
+    height: 800px; 
+    background-color: #525659; 
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+.resume-viewer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+@media (max-width: 600px) {
+    .resume-viewer { height: 500px; }
+}
+
+/* --- CASE STUDY DETAIL PAGE STYLES --- */
+.cs-header-image {
+    width: 100%;
+    height: auto; 
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    display: block;
+}
+
+.cs-icon {
+    font-size: 3rem;
+    margin-top: -3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.cs-properties {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0.8rem 1.5rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
+.cs-prop-label { color: #999; font-weight: 500; }
+.cs-prop-value { color: var(--text-color); }
+
+.status-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+.status-green { background: #eefdf2; color: #0f7b6c; }
+
+.cs-callout {
+    background-color: #f1f1ef; 
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+}
+
+[data-theme="dark"] .cs-callout { background-color: #2f2f2f; }
+
+.cs-callout-item {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+}
+
+/* --- PERSISTENT FLOATING TABLE OF CONTENTS --- */
+
+/* Only show on wide screens (Desktop) where there is room on the right */
+@media (min-width: 1300px) {
+
+    .toc-container {
+        position: fixed;
+        top: 50%; /* Center Vertically */
+        transform: translateY(-50%); /* Adjust position based on its own height */
+        right: 3rem; /* Distance from the right edge */
+        z-index: 900;
+        width: 220px; /* Fixed width for the card */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    /* Hide the "Hamburger/List" Icon completely */
+    .toc-trigger {
+        display: none;
+    }
+
+    /* Style the Menu as a Permanent Floating Card */
+    .toc-menu {
+        display: flex; /* Always visible */
+        flex-direction: column;
+        gap: 0.2rem;
+        
+        /* The Floating Card Look */
+        background-color: var(--card-bg); /* Matches theme background */
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1.2rem;
+        
+        /* Soft Shadow for depth */
+        box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    /* Links Styling */
+    .toc-menu a {
+        font-size: 0.8rem;
+        color: var(--text-color);
+        opacity: 0.6;
+        padding: 6px 10px;
+        border-radius: 4px;
+        transition: all 0.2s;
+        text-decoration: none;
+        display: block;
+        line-height: 1.4;
+    }
+
+    .toc-menu a:hover {
+        background-color: rgba(45, 156, 219, 0.08);
+        color: var(--primary-color);
+        opacity: 1;
+        transform: translateX(3px); /* Small nudge right on hover */
+    }
+
+    /* "ON THIS PAGE" Label */
+    .toc-menu div {
+        font-size: 0.7rem; 
+        font-weight: 700; 
+        color: #999; 
+        margin-bottom: 8px; 
+        padding-left: 10px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+}
+
+/* Hide completely on smaller screens (Laptops/Tablets/Mobile) */
+@media (max-width: 1299px) {
+    .toc-container {
+        display: none;
+    }
+}
+
+/* --- SCROLL ANIMATION (Keep this part) --- */
+html {
+    scroll-padding-top: 90px;
+    scroll-behavior: smooth;
+}
+
+:target {
+    animation: highlight-glow 1.5s ease-out;
+}
+
+@keyframes highlight-glow {
+    0% { background-color: transparent; }
+    10% { background-color: rgba(45, 156, 219, 0.15); border-radius: 4px; }
+    80% { background-color: rgba(45, 156, 219, 0.15); border-radius: 4px; }
+    100% { background-color: transparent; }
+}
+
+/* --- UPDATED HERO SECTION --- */
+#hero {
+    text-align: center; /* Center align looks more premium */
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+}
+
+/* The Status Pill (Replaces Alert Box) */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--step-pink); /* Soft background */
+    color: var(--alert-text);
+    padding: 0.4rem 1rem;
+    border-radius: 50px; /* Pill shape */
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.status-pill i { font-size: 0.8rem; }
+
+.step-card { 
+    padding: 1.2rem; 
+    border-radius: 6px; 
+    /* ADD THIS: Smooth transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ADD THIS HOVER STATE */
+.step-card:hover {
+    transform: translateY(-5px); /* Lifts up */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Soft shadow */
+}
+
+/* --- 2x2 FEATURE GRID (Fixed Width Issue) --- */
+
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    /* FLEXBOX LAYOUT (Safer than Grid for this) */
+    display: flex;
+    flex-wrap: wrap;       /* Allows description to drop to next line */
+    justify-content: center; /* Centers everything */
+    align-items: center;   /* Vertically aligns Icon + Title */
+    column-gap: 1rem;      /* Space between Icon and Title */
+    row-gap: 0.5rem;       /* Space between Title and Description */
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-color: var(--primary-color);
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    /* No margin needed, column-gap handles it */
+}
+
+.feature-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.3;
+    text-align: left;
+}
+
+/* Force Description to a new full-width line */
+.feature-desc {
+    flex-basis: 100%; /* Takes up whole row */
+    width: 100%;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+}
+
+/* Mobile: Stack grid back to 1 column */
+@media (max-width: 600px) {
+    .grid-2x2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- CONTACT PAGE UPDATES --- */
+
+/* 1. Container for centered layout */
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 2. New Intro Text (Centered, Clean, No Vertical Bar) */
+.contact-intro {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+/* 3. The Email Box Button (UPDATED to Full Width) */
+.email-box {
+    background-color: #f7f7f5;
+    border: 1px solid var(--border-color);
+    padding: 1rem 1.5rem; /* Slightly taller for better visual balance */
+    border-radius: 8px;
+    
+    /* NEW: Full Width Settings */
+    display: flex; 
+    width: 100%; 
+    justify-content: center;
+    box-sizing: border-box;
+    
+    gap: 0.8rem;
+    font-size: 1.05rem;
+    color: var(--text-color);
+    margin-top: 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.email-box:hover {
+    background-color: #efefef;
+    transform: translateY(-2px);
+    border-color: #ccc;
+}
+
+[data-theme="dark"] .email-box {
+    background-color: var(--card-bg);
+}
+
+/* 4. "Open To" List with Blue Checkmarks */
+.open-to-list {
+    text-align: left;
+    list-style: none; /* Removes default black dots */
+    padding: 0;
+    margin: 1.5rem auto;
+    max-width: 550px; /* Keeps list centered but left-aligned */
+}
+
+.open-to-list li {
+    position: relative;
+    padding-left: 2rem; /* Make space for checkmark */
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.open-to-list li::before {
+    content: "\f00c"; /* FontAwesome Check Icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: var(--primary-color); /* Blue Checkmark */
+}
+
+/* --- BUTTON GROUP WRAPPER --- */
+/* This shrinks the container to match the exact width of the 3 buttons */
+.action-group {
+    width: fit-content;
+    margin: 0 auto 3rem auto; /* Centers the whole block */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure buttons stretch if the email text happens to be longer (rare, but safe) */
+.action-group .cta-buttons {
+    width: 100%; 
+    justify-content: space-between; /* Spreads them evenly if needed */
+}
+
+/* --- ACTIVE STATE FOR TOC LINKS --- */
+/* This class is added by JavaScript when the section is visible */
+.toc-menu a.active {
+    background-color: rgba(45, 156, 219, 0.08); /* Light Blue Background */
+    color: var(--primary-color); /* Blue Text */
+    opacity: 1;
+    font-weight: 600; /* Make it slightly bold */
+    border-left: 3px solid var(--primary-color); /* Optional: A nice indicator line */
+    padding-left: 7px; /* Adjust padding to make room for the border */
+}

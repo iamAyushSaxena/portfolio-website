@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML-Powered Recommendation System — Case Study</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="favicon.jpg">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="nav_icon.jpg" alt="Ayush Saxena" class="nav-profile-pic">
+            </a>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cases.html">Case Studies</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 1rem;">
+        
+        <section class="text-block">
+
+            <div style="text-align: left; margin-bottom: 1.5rem;">
+                <a href="cases.html" class="text-link" style="font-size: 0.95rem; opacity: 0.7;">
+                    <i class="fas fa-arrow-left"></i> Back to Case Studies
+                </a>
+            </div>
+        
+        <section class="text-block">
+            
+            <div style="background-color: #333; border-radius: 8px; overflow: hidden; margin-bottom: 2rem;">
+                <img src="project4.png" alt="Recommendation Graph" class="cs-header-image" style="margin-bottom:0; border:none;">
+            </div>
+
+            <h1 style="margin-bottom: 0.5rem;">🤖 ML-Powered Recommendation System — Product Case Study</h1>
+            
+            <div class="cs-properties">
+                <div class="cs-prop-label"><i class="fas fa-align-left"></i> Problem</div>
+                <div class="cs-prop-value">Designing personalized recommendations that improve user experience without increasing complexity or creating trust issues.</div>
+
+                <div class="cs-prop-label"><i class="fas fa-tag"></i> PM Skill</div>
+                <div class="cs-prop-value"><span class="tag blue-tag" style="margin:0; font-size: 0.9rem;">ML Product</span></div>
+
+                <div class="cs-prop-label"><i class="fas fa-check-circle"></i> Status</div>
+                <div class="cs-prop-value"><span class="status-tag status-green">Completed</span></div>
+            </div>
+
+            <div class="notion-quote" style="margin-top: 0.8rem; font-style: italic; opacity: 0.8;">
+                <strong>How can ML features deliver real user value — not just accuracy?</strong><br>
+                <span style="opacity: 0.8;">Translating algorithms into explainable, trusted user experiences.</span>
+            </div>
+
+            <div class="cs-callout" id="overview">
+                <div style="font-weight: 600; margin-bottom: 0.5rem; font-size: 1.1rem;">Case Study Overview</div>
+                
+                <div class="cs-callout-item">
+                    <span>⚠️</span> <span><strong>Problem:</strong> Users struggle to discover relevant content or products due to generic, non-personalized experiences.</span>
+                </div>
+                <div class="cs-callout-item">
+                    <span>👤</span> <span><strong>User:</strong> Users interacting with platforms offering large catalogs (e-commerce, content, or learning platforms).</span>
+                </div>
+                <div class="cs-callout-item">
+                    <span>🎯</span> <span><strong>Goal:</strong> Design a recommendation strategy that improves discovery, engagement, and long-term retention while maintaining transparency and usability.</span>
+                </div>
+                <div class="cs-callout-item">
+                    <span>🧠</span> <span><strong>Core PM Skill:</strong> ML Product Strategy & Personalization</span>
+                </div>
+            </div>
+
+            <h3 id="problem">Problem Statement</h3>
+            <p>As digital platforms scale, users are exposed to overwhelming amounts of content and choices. Without personalization, users struggle to find relevant items, leading to reduced engagement and lower satisfaction.</p>
+            <p style="margin-top: 0.5rem;">While machine learning can enable personalization, poorly designed recommendation systems can feel confusing, biased, or untrustworthy to users.</p>
+            <p style="margin-top: 0.5rem;">The challenge lies not in building complex models, but in designing recommendation experiences that balance accuracy, explainability, and user control.</p>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="role">My Role</h3>
+            <p style="margin-left: 2rem;">Led an independent ML product case study focused on defining personalization strategy, identifying user problems in discovery, and translating machine learning concepts into clear product decisions, user flows, and success metrics.</p>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="approach">Approach</h3>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li>Identified user discovery and decision-friction problems</li>
+                <li>Defined personalization goals and success metrics</li>
+                <li>Analyzed how recommendation systems create user value</li>
+                <li>Evaluated trade-offs between accuracy, explainability, and complexity</li>
+                <li>Designed recommendation flows and measurement strategy</li>
+            </ul>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="insights">Key Insights</h3>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li><strong>Users value relevance over variety.</strong><br>Too many options reduce confidence and slow decision-making.</li>
+                <li><strong>Cold-start experience defines trust.</strong><br>Poor initial recommendations reduce long-term engagement.</li>
+                <li><strong>Explainability increases adoption.</strong><br>Users feel more comfortable when they understand why something is recommended.</li>
+                <li><strong>Personalization must evolve over time.</strong><br>Static recommendations fail as user preferences change.</li>
+            </ul>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="decisions">Product Decisions & Trade-offs</h3>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li><strong>Chose hybrid recommendation logic instead of pure ML-based ranking.</strong><br>Combined behavioral signals with basic rules to reduce cold-start risk.</li>
+                <li><strong>Chose progressive personalization over immediate deep personalization.</strong><br>Avoided aggressive personalization early to prevent incorrect assumptions.</li>
+                <li><strong>Chose explainable recommendations over black-box accuracy.</strong><br>Slightly lower precision was accepted in favor of higher user trust.</li>
+                <li><strong>Chose engagement metrics over click-only optimization.</strong><br>Prioritized repeat usage and time-to-value rather than short-term clicks.</li>
+            </ul>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="outcome">Outcome / Impact</h3>
+            <p>Based on simulated data patterns and behavioral assumptions, the proposed recommendation strategy was expected to:</p>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li>Improve content or product discovery efficiency</li>
+                <li>Increase engagement through personalized ranking</li>
+                <li>Reduce decision fatigue during browsing</li>
+                <li>Strengthen long-term retention through evolving personalization</li>
+            </ul>
+            <p style="margin-top: 1rem; font-style: italic; opacity: 0.7;"><strong>Note:</strong> These outcomes represent projected impact based on product assumptions, not actual production metrics.</p>
+
+            <hr class="section-divider" style="margin-top: 2rem;">
+
+            <h3 id="learned">What I Learned</h3>
+            <ul class="bullet-list" style="margin-left: 3rem;">
+                <li>ML systems create value only when aligned with the user context</li>
+                <li>Better algorithms do not guarantee a better user experience</li>
+                <li>Trust and transparency matter as much as accuracy</li>
+                <li>Product managers must bridge technical feasibility with human behavior</li>
+                <li>Personalization is a product strategy, not just a model output</li>
+            </ul>
+
+
+        </section>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            
+            <a href="cases.html" class="btn-notion-outline">
+                <i class="fas fa-arrow-left"></i> Back to Case Studies
+            </a>
+
+            <a href="https://github.com/iamAyushSaxena/ML-Restaurant-Recommendations" target="_blank" class="btn-notion">
+                <i class="fab fa-github"></i> View Code on GitHub
+            </a>
+
+    </main>
+
+    <div class="toc-container">
+        <div class="toc-trigger">
+            <i class="fas fa-list-ul"></i>
+        </div>
+        <div class="toc-menu">
+            <div style="font-size: 0.75rem; font-weight: 700; color: #999; margin-bottom: 5px; padding-left: 10px;">ON THIS PAGE</div>
+            <a href="#overview">Case Study Overview</a>
+            <a href="#problem">Problem Statement</a>
+            <a href="#role">My Role</a>
+            <a href="#approach">Approach</a>
+            <a href="#insights">Key Insights</a>
+            <a href="#decisions">Product Decisions</a>
+            <a href="#outcome">Outcome / Impact</a>
+            <a href="#learned">What I Learned</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 <strong>Ayush Saxena</strong>. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
