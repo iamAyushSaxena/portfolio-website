@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/jpg" href="favicon.jpg">
 </head>
-<body>
+<body class="cases-page">
 
     <nav>
         <div class="logo">
@@ -38,6 +38,8 @@
                     <i class="fas fa-arrow-left"></i> Back to Case Studies
                 </a>
             </div>
+
+        </section>
         
         <section class="text-block">
             
@@ -48,14 +50,9 @@
             <h1 style="margin-bottom: 0.5rem;">🧠 Productivity Paradox — User Research Case Study</h1>
             
             <div class="cs-properties">
-                <div class="cs-prop-label"><i class="fas fa-align-left"></i> Problem</div>
-                <div class="cs-prop-value">Feature-heavy productivity tools create cognitive overload for users.</div>
 
-                <div class="cs-prop-label"><i class="fas fa-tag"></i> PM Skill</div>
-                <div class="cs-prop-value"><span class="tag pink-tag" style="margin:0; font-size: 0.9rem;">User Research</span></div>
-
-                <div class="cs-prop-label"><i class="fas fa-check-circle"></i> Status</div>
-                <div class="cs-prop-value"><span class="status-tag status-green">Completed</span></div>
+                <div class="cs-prop-label" style="margin-top: 1rem;"><i class="fas fa-tag"></i> PM Skill</div>
+                <div class="cs-prop-value" style="margin-top: 1.3rem;"><span class="tag pink-tag" style="margin:0; font-size: 0.9rem;">User Research</span></div>
             </div>
 
             <div class="notion-quote" style="margin-top: 0.8rem; font-style: italic; opacity: 0.8;">
@@ -149,15 +146,29 @@
             </ul>
 
         </section>
+        
+        <section>
+            <div class="live-demo-block cs-callout" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; width: 100%; max-width: 600px; margin: 2rem auto; padding: 25px; border: 1px solid var(--border-color); border-radius: 8px; text-align: center;">
+                
+                <a href="https://ayush-saxena-user-research-spec.streamlit.app/" target="_blank" class="btn-notion" style="white-space: nowrap;">
+                    <i class="fas fa-rocket"></i> Live Demo
+                </a>
+                
+                <p style="font-size: 0.9rem; margin: 0; opacity: 0.85; line-height: 1.5; width: 100%;">
+                    <strong>Note:</strong> This app runs on free hosting and may go to <strong>sleep</strong>. If prompted, please click the <strong>"Awake"</strong> button and wait 1–2 minutes for it to initialize.
+                </p>
+            
+            </div>
+        </section>
 
-        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <div class="cta-buttons" style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
             
             <a href="cases.html" class="btn-notion-outline">
                 <i class="fas fa-arrow-left"></i> Back to Case Studies
             </a>
 
             <a href="https://github.com/iamAyushSaxena/User-Research-Product-Spec" target="_blank" class="btn-notion">
-                <i class="fab fa-github"></i> View Code on GitHub
+                <i class="fab fa-github"></i> View on GitHub
             </a>
 
         </div>

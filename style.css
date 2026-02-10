@@ -275,7 +275,16 @@ h3 { font-size: 1.35rem; font-weight: 600; margin-bottom: 0.5rem; }
 .img-placeholder { color: #999; font-size: 0.8rem; font-weight: 500; }
 
 .card-content { padding: 1rem; flex-grow: 1; display: flex; flex-direction: column; }
-.card-content h3 { font-size: 1rem; line-height: 1.35; margin-bottom: 0.5rem; font-weight: 600; }
+.card-content h3 { 
+    font-size: 0.94rem; /* Reduced from 1rem */
+    line-height: 1.35; 
+    margin-bottom: 0.5rem; 
+    font-weight: 600; 
+    
+    /* Hanging Indent for Emojis */
+    padding-left: 22px; 
+    text-indent: -22px;
+}
 
 /* Text Link (Used in Cards & Ghost Buttons) */
 .text-link { 
@@ -406,35 +415,6 @@ footer {
     margin-top: 4rem; 
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 900px) {
-    .project-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 800px) {
-    .project-card { width: calc((100% - 1.5rem) / 2); }
-}
-
-@media (max-width: 600px) {
-    .project-grid { grid-template-columns: 1fr; }
-    .project-card { width: 100%; }
-    .hamburger { display: block; }
-    .nav-links {
-        display: none; position: absolute; top: 100%; left: 0; width: 100%;
-        background-color: var(--nav-bg); flex-direction: column;
-        text-align: center; padding: 1rem 0; border-bottom: 1px solid var(--border-color);
-        margin-right: 0;
-    }
-    .nav-links.active { display: flex; }
-    
-    h1 { font-size: 1.8rem; }
-    h2 { font-size: 1.4rem; }
-}
-
-@media (max-width: 550px) {
-    .project-card { width: 100%; }
-}
-
 /* --- CONTACT PAGE STYLES --- */
 .notion-quote {
     border-left: 3px solid var(--text-color); 
@@ -492,7 +472,12 @@ footer {
     gap: 3rem; 
     margin-bottom: 2rem;
 }
-.intro-text { flex: 1; }
+.intro-text { 
+    flex: 1; 
+    
+    /* ADD THIS LINE: */
+    text-align: justify; 
+}
 .intro-image-container { flex-shrink: 0; width: 200px; }
 .about-profile-pic {
     width: 100%;
@@ -914,4 +899,644 @@ html {
     font-weight: 600; /* Make it slightly bold */
     border-left: 3px solid var(--primary-color); /* Optional: A nice indicator line */
     padding-left: 7px; /* Adjust padding to make room for the border */
+}
+
+/* --- CUSTOM BANNER CONFIGURATION --- */
+
+.banner-container {
+    /* 1. WIDTH CONTROL */
+    width: 100%;
+    max-width: var(--content-width); /* currently 705px. Change to '800px' or '100%' to make it wider */
+    margin: 0 auto; /* Keeps it centered */
+    
+    /* 2. SPACING (Gap above and below the image) */
+    margin-top: 2rem;    /* ⬅ CHANGE THIS to increase/decrease gap from Nav Bar */
+    margin-bottom: 2rem; /* ⬅ CHANGE THIS to increase/decrease gap to Your Name */
+    
+    padding-left: var(--mobile-padding);
+    padding-right: var(--mobile-padding);
+}
+
+.page-banner {
+    width: 100%; /* Always keep this 100% to fill the container */
+    
+    /* 3. HEIGHT CONTROL (The most important part) */
+    
+    /* OPTION A: Natural Height (No cropping, but might be too tall) */
+    height: auto; 
+    
+    /* OPTION B: Fixed Height (Forces a specific size, e.g., 250px) */
+    /* height: 250px; */ 
+    
+    /* 4. MAX HEIGHT LIMIT (Stops it from becoming huge on desktop) */
+    max-height: 240px; /* ⬅ CHANGE THIS (e.g., 400px, 500px) to let it grow taller */
+    
+    /* 5. CROP VS. FIT */
+    /* 'cover' = Fills the box but might cut off edges */
+    /* 'contain' = Shows full image but might leave empty space */
+    object-fit: cover; 
+    
+    border-radius: 12px; /* Corner roundness */
+    display: block;
+    border: 1px solid var(--border-color); 
+}
+
+/* 6. REMOVE EXTRA PADDING FROM NAME SECTION */
+/* Essential to make 'margin-bottom' above work correctly */
+#hero {
+    padding-top: 0 !important; 
+}
+
+/* --- FINAL MOBILE FIXES (Home/About = Large | Cases = Large Wrapped | Contact = Grid Pyramid) --- */
+@media screen and (max-width: 800px) {
+    
+    /* 1. GLOBAL TEXT SIZE REDUCTION (-1px) */
+    html { font-size: 15px !important; }
+
+    /* 2. Nav Container */
+    body nav {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 20px 10px 20px 10px !important; 
+        position: relative !important; 
+    }
+
+    /* 3. Hide Logo & Hamburger */
+    body .logo, 
+    body #hamburger { display: none !important; }
+
+    /* 4. LINKS: 6-Column Grid */
+    body .nav-links {
+        display: grid !important;
+        grid-template-columns: repeat(6, 1fr) !important;
+        width: 100% !important;
+        gap: 8px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        position: static !important;
+        border: none !important;
+    }
+
+    /* ROW 1: 3 Items */
+    body .nav-links li:nth-child(1) { grid-column: span 2 !important; }
+    body .nav-links li:nth-child(2) { grid-column: span 2 !important; }
+    body .nav-links li:nth-child(3) { grid-column: span 2 !important; }
+
+    /* ROW 2: 2 Items Centered */
+    body .nav-links li:nth-child(4) { grid-column: 2 / span 2 !important; } 
+    body .nav-links li:nth-child(5) { grid-column: 4 / span 2 !important; } 
+
+    /* Button Styling */
+    body .nav-links a {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem !important; 
+        font-weight: 500 !important;
+        padding: 10px 2px !important;
+        width: 100% !important;
+        text-align: center !important;
+        background-color: var(--secondary-color) !important;
+        border-radius: 50px !important;
+        white-space: nowrap !important;
+        height: 100% !important;
+        color: var(--text-color) !important;
+    }
+
+    /* Active State Highlight */
+    body .nav-links a.active {
+        background-color: var(--alert-bg) !important; 
+        color: var(--alert-text) !important;       
+        font-weight: 700 !important;
+        border: 1px solid rgba(0,0,0,0.05) !important;
+    }
+
+    [data-theme="dark"] body .nav-links a.active {
+        background-color: rgba(212, 76, 71, 0.2) !important;
+        color: #ff8f8b !important;
+    }
+
+    /* 5. TOGGLE BUTTON */
+    body .nav-controls {
+        position: absolute !important;
+        bottom: 23px !important;  
+        right: 15px !important;    
+        z-index: 100 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: auto !important;
+    }
+
+    body #theme-toggle {
+        display: flex !important;
+        background-color: transparent !important; 
+        border: 1px solid var(--border-color) !important;
+        width: 32px !important;
+        height: 32px !important;
+        box-shadow: none !important;
+    }
+    
+    /* 6. Fix Hero Spacing */
+    body #hero { padding-top: 30px !important; }
+
+    /* 7. PROJECT CARDS: LIST VIEW + HANGING INDENT */
+    .project-grid {
+        display: flex !important;
+        flex-direction: column !important; 
+        gap: 15px !important; 
+    }
+
+    .project-card {
+        flex-direction: row !important; 
+        width: 100% !important;
+        min-height: 120px !important;
+        align-items: stretch !important;
+    }
+
+    .card-image {
+        width: 35% !important; 
+        min-width: 110px !important; 
+        height: auto !important;
+        border-bottom: none !important;
+        border-right: 1px solid var(--border-color) !important;
+    }
+    
+    .project-img { height: 100% !important; object-fit: cover !important; }
+
+    .card-content {
+        width: 65% !important;
+        padding: 10px 15px !important;
+        justify-content: center !important;
+    }
+
+    .card-content h3 {
+        font-size: 0.80rem !important; 
+        margin-bottom: 0.4rem !important;
+        line-height: 1.25 !important;  
+        padding-left: 22px !important; 
+        text-indent: -22px !important; 
+    }
+    
+    .tag { margin-top: 0 !important; margin-bottom: 5px !important; }
+    .text-link { margin-top: 0.5rem !important; }
+
+    /* 8. BUTTONS: SPLIT LOGIC (Updated for Case Studies) */
+    
+    /* A. DEFAULT (Home & About) -> STACKED & LARGE */
+    .cta-buttons {
+        display: flex !important;
+        flex-direction: column !important;      
+        align-items: center !important;         
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    .cta-buttons .btn-notion,
+    .cta-buttons .btn-notion-outline { 
+        width: 90% !important;          
+        max-width: 350px !important;    
+        font-size: 0.95rem !important;  
+        padding: 12px 0 !important;     
+        text-align: center !important;
+        white-space: nowrap !important;
+        justify-content: center !important;
+    }
+
+    /* B. CASE STUDIES -> LARGE & WRAPPED (Same size as Live Demo) [UPDATED] */
+    body.cases-page .cta-buttons {
+        flex-direction: row !important;             
+        justify-content: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        flex-wrap: wrap !important;         /* Allow stacking if they are too wide */
+    }
+
+    /* B. CASE STUDIES -> FORCE ROW LAYOUT [FIXED] */
+    body.cases-page .cta-buttons .btn-notion,
+    body.cases-page .cta-buttons .btn-notion-outline {
+        width: auto !important;          
+        max-width: none !important;
+        
+        /* 1. Reduce Text Size Slightly */
+        font-size: 0.85rem !important;   
+        
+        /* 2. Tighten Padding (Top/Bottom 10px, Left/Right 5px) */
+        padding: 10px 5px !important;    
+        
+        /* 3. Allow Flexible Sizing */
+        flex: 1 1 0 !important;          /* Shares space equally */
+        
+        /* 4. CRITICAL: Remove Min-Width constraint */
+        min-width: 0 !important;         /* Allows them to shrink to fit the row */
+        
+        /* 5. Ensure text stays on one line */
+        white-space: nowrap !important;
+    }
+
+    /* C. CONTACT PAGE -> GRID PYRAMID LAYOUT */
+    /* Forces the layout to be stable and predictable */
+    html body.contact-page .cta-buttons {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Two equal columns */
+        gap: 12px !important;
+        width: 100% !important;
+        margin-bottom: 0 !important;
+        flex-wrap: wrap !important; 
+    }
+
+    /* LinkedIn (1st) -> Spans across both columns (Full Top Row) */
+    html body.contact-page .cta-buttons a:nth-child(1) {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        max-width: 400px !important;
+        justify-self: center !important;
+    }
+
+    /* GitHub & Resume (2nd & 3rd) -> Sit in their own columns */
+    html body.contact-page .cta-buttons a:nth-child(2),
+    html body.contact-page .cta-buttons a:nth-child(3) {
+        grid-column: span 1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    /* Contact Page Button Sizing */
+    html body.contact-page .cta-buttons .btn-notion,
+    html body.contact-page .cta-buttons .btn-notion-outline {
+        font-size: 1rem !important;      
+        padding: 14px 10px !important;   
+        width: 100% !important;          
+    }
+
+    /* 9. PREMIUM SPACING */
+    body main header, 
+    body main section, 
+    body main .cta-buttons, 
+    body main .resume-viewer,
+    body main .contact-container, 
+    body main .about-intro { 
+        padding-left: 24px !important;  
+        padding-right: 24px !important; 
+    }
+
+    body main .section-divider {
+        margin-left: 24px !important;
+        margin-right: 24px !important;
+        width: auto !important; 
+    }
+
+    #hero .hero-content {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* 10. COMPACT "WHY ME" CARDS */
+    #background .grid-2x2 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    .feature-card {
+        display: grid !important;
+        grid-template-columns: 40px 1fr !important;
+        grid-template-rows: auto auto !important;     
+        text-align: left !important;
+        padding: 12px 15px !important; 
+        align-items: start !important;
+        column-gap: 15px !important;
+        row-gap: 4px !important;
+    }
+
+    .feature-icon {
+        grid-row: 1 / -1 !important;
+        font-size: 1.4rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 100% !important;
+        color: var(--primary-color) !important;
+    }
+
+    .feature-title { grid-column: 2 !important; font-size: 0.95rem !important; margin: 0 !important; line-height: 1.2 !important; }
+    .feature-desc { grid-column: 2 !important; font-size: 0.85rem !important; margin: 0 !important; line-height: 1.4 !important; width: 100% !important; }
+
+    /* 11. PHILOSOPHY SECTION FIX */
+    #philosophy ul {
+        margin-left: 20px !important; 
+        padding-left: 0 !important;
+        list-style: none !important;
+    }
+
+    #philosophy ul li {
+        position: relative !important;
+        padding-left: 30px !important; 
+        margin-bottom: 15px !important;
+    }
+
+    #philosophy ul li i {
+        position: absolute !important;
+        left: 0 !important;
+        top: 4px !important;
+    }
+
+    /* 12. EMAIL BUTTON FIX */
+    .action-group {
+        width: 100% !important;
+    }
+
+    body main .email-box i { display: none !important; }
+    body main .email-box {
+        font-size: 0.95rem !important; 
+        padding: 14px 10px !important;   
+        white-space: nowrap !important; 
+        width: 100% !important;
+        max-width: 400px !important;    
+        margin-left: auto !important;   
+        margin-right: auto !important;
+        justify-content: center !important;
+        margin-top: 12px !important;    
+    }
+
+    /* 13. RESUME HEADER FIX */
+    .resume-header {
+        display: flex !important;
+        flex-direction: row !important; 
+        align-items: center !important;
+        flex-wrap: nowrap !important;   
+        gap: 0.5rem !important; 
+        width: 100% !important;
+        overflow: hidden !important;
+        padding-left: 0 !important; 
+    }
+
+    /* Resume Button Size (-1) */
+    .resume-header .btn-notion {
+        font-size: 0.85rem !important; 
+        padding: 0.6rem 0.9rem !important;
+    }
+
+    /* PDF Info Text Size (-1) */
+    .resume-header span {
+        white-space: nowrap !important;
+        font-size: 0.8rem !important; 
+        opacity: 0.7 !important;
+    }
+
+    /* Quote Text Size (-1) */
+    .notion-quote p {
+        font-size: 0.9rem !important; 
+    }
+
+    /* Hide arrow link */
+    .resume-header .text-link { display: none !important; }
+
+    /* 14. BANNER IMAGE HEIGHT (Cropping from Bottom) */
+    .page-banner {
+        width: 100% !important;
+        height: 170px !important; 
+        object-fit: cover !important; 
+        object-position: top center !important; 
+        border-radius: 8px !important;
+    }
+    
+    .banner-container {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* 15. ABOUT PAGE FIXES (Intro) */
+    .about-intro {
+        flex-direction: column-reverse !important; 
+        align-items: center !important; 
+        gap: 1.5rem !important;
+        padding-top: 0 !important;
+        margin-top: -2.5rem !important; 
+    }
+
+    .intro-text {
+        text-align: justify !important; 
+        width: 100% !important;
+    }
+
+    .about-intro h1 {
+        text-align: center !important; 
+        white-space: nowrap !important; 
+        font-size: 1.7rem !important;
+        width: 100% !important;
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .intro-image-container {
+        width: 160px !important; 
+        margin-bottom: 0 !important;
+    }
+
+    /* 16. ABOUT PAGE SPECIFIC TEXT SIZE & ALIGNMENT */
+    body.about-page h2 {
+        font-size: 1.45rem !important; 
+    }
+    
+    body.about-page .notion-toggle summary {
+        font-size: 1.15rem !important; 
+        line-height: 1.3 !important;
+        white-space: normal !important;
+    }
+
+    body.about-page main p, 
+    body.about-page main li {
+        font-size: 0.93rem !important; 
+        line-height: 1.6 !important;
+        text-align: justify !important; 
+    }
+
+    body.about-page .toggle-content {
+        padding-left: 0.2rem !important; 
+    }
+
+    body.about-page .toggle-content ul,
+    body.about-page .bullet-list {
+        margin-left: 1rem !important; 
+        padding-left: 0 !important;
+    }
+    
+    body.about-page .btn-notion, 
+    body.about-page .btn-notion-outline {
+        font-size: 0.95rem !important; 
+    }
+
+    /* 17. CONTACT PAGE ADJUSTMENTS */
+    body.contact-page main p, 
+    body.contact-page main li {
+        font-size: 0.93rem !important; 
+        line-height: 1.6 !important;
+    }
+
+    body.contact-page h2 {
+        font-size: 1.6rem !important; 
+    }
+
+    body.contact-page .btn-notion, 
+    body.contact-page .email-box {
+        font-size: 0.95rem !important; 
+    }
+
+    /* 18. CASE STUDY TITLE FIX (Internal Pages) */
+    body.cases-page h1 {
+        white-space: normal !important; 
+        font-size: 1.3rem !important;   
+        line-height: 1.3 !important;    
+        padding-right: 0 !important;    
+    }
+
+    /* 19. HOME PAGE HEADERS CENTER ALIGNMENT */
+    #methodology h2, 
+    #projects h2, 
+    #background h2,
+    #philosophy h2 { 
+        text-align: center !important;
+    }
+
+    /* 20. SECTION TITLES (Fixed: Correct Tag Selector) */
+    
+    /* A. Home Page Defaults (Keeps Home Page as h2) */
+    #projects h2 {
+        white-space: nowrap !important; 
+        font-size: 1.5rem !important; 
+        width: 100% !important;        
+        overflow: visible !important;   
+    }
+
+    /* B. Case Studies Page: "Featured Case Studies" */
+    /* FIXED: Changed 'h2' to 'h1' to match your HTML */
+    html body.cases-page #projects h1 {
+        font-size: 1.8rem !important;   /* <--- NOW THIS WILL WORK */
+        white-space: nowrap !important;
+        line-height: 1.2 !important;
+        margin-top: 1.5rem !important;
+        text-align: left !important;
+    }
+
+    /* 21. JUSTIFIED TEXT & SIZING */
+    #philosophy p, 
+    #philosophy li,
+    .cta-box p,
+    .notion-quote, 
+    .notion-quote p {
+        font-size: 0.93rem !important; 
+        line-height: 1.6 !important;
+        text-align: justify !important; 
+    }
+
+    /* 22. CONTACT LIST TAB SPACE */
+    .open-to-list {
+        padding-left: 1.5rem !important; 
+    }
+
+    /* 23. CASE STUDY TEXT: Justified + Reduced Size (-1) */
+    body.cases-page main p, 
+    body.cases-page main li {
+        text-align: justify !important; 
+        font-size: 0.93rem !important; /* -1 Size */
+        line-height: 1.6 !important;
+    }
+
+    /* 24. CASE STUDY PADDING FIX */
+    body.cases-page main {
+        padding: 0 !important;
+    }
+
+    body.cases-page main > * {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 25. CASE STUDY TOP MARGIN (Mobile Only) */
+    body.cases-page main > section.text-block:first-child {
+        margin-top: 1rem !important;
+    }
+
+    /* 26. PAGE SPACING ALIGNMENT (Mobile Only) */
+    body.cases-page #projects {
+        margin-top: 2rem !important;
+    }
+
+    body.contact-page main {
+        padding-top: 2rem !important; 
+    }
+    
+    body.resume-page main {
+        padding-top: 2rem !important; 
+    }
+
+    /* 27. COMPACT PROPERTIES GRID (Mobile Only) */
+    .cs-properties {
+        grid-template-columns: auto 1fr !important; 
+        gap: 0.8rem 1.2rem !important; 
+    }
+
+    /* 28. DIVIDER FIX (Contact + Case Studies - Mobile Only) */
+    body.contact-page .section-divider,
+    body.cases-page .section-divider {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* 29. LIVE DEMO NOTE HANGING INDENT (Mobile Only) */
+    .live-demo-block p {
+        text-align: left !important;      
+        padding-left: 2.8rem !important;  
+        text-indent: -2.8rem !important;  
+        margin-left: auto !important;     
+        margin-right: auto !important;
+        max-width: 95% !important;        
+    }
+
+    /* 30. LIVE DEMO CARD COMPACTING (Mobile Only) */
+    .live-demo-block {
+        padding: 1rem !important;        
+        width: 100% !important;          
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* --- REDUCE GAP IN CASE STUDY HEADERS (Global Fix) --- */
+body.cases-page main > section.text-block:first-child {
+    margin-bottom: 0 !important;
+}
+
+body.cases-page main > section.text-block:first-child > div {
+    margin-bottom: 1rem !important;
+}
+
+/* --- FORCE CENTER CTA HEADING (Global Fix) --- */
+.cta-box h2, 
+.cta-box h3 {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+/* --- HANGING INDENT FOR PROJECT TITLES (Global Fix) --- */
+body.cases-page h1 {
+    /* Pushes the whole block right, then pulls the first line (Emoji) back left */
+    padding-left: 1.4em !important; 
+    text-indent: -1.4em !important;
+}
+
+/* --- REDUCE CARD TITLE SIZE (Desktop/Web) --- */
+@media screen and (min-width: 801px) {
+    .card-content h3 {
+        font-size: 1.05rem !important; /* Reduced to ensure 3-line fit on Web */
+        line-height: 1.35 !important;
+    }
 }
